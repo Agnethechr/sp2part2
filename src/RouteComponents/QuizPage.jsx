@@ -51,7 +51,7 @@ function QuizPage() {
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const res = await fetch("https://quiz.vichconsulting.dk/api/quiz");
+        const res = await fetch("https://quiz.vichconsulting.dk/api/game");
         if (!res.ok) throw new Error("Netværksfejl");
         const data = await res.json();
         setQuestions(data.slice(0, 15));
