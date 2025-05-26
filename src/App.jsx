@@ -6,6 +6,7 @@ import MainPage from './RouteComponents/MainPage';
 import VisionPage from './RouteComponents/VisionPage';
 import EndpointsPage from './RouteComponents/EndpointsPage';
 import QuizPage from './RouteComponents/QuizPage';
+import QuestionPage from './RouteComponents/questionPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Link to="/vision">Vision</Link> |{" "}
         <Link to="/endpoints">Endpoints</Link> |{" "}
         <Link to="/quiz">Quiz</Link> |{" "}
+        <Link to="/question">Question</Link> |{" "}
       </nav>
 
       <Routes>
@@ -28,6 +30,7 @@ function App() {
         <Route path="/vision" element={<VisionPage />} />
         <Route path="/endpoints" element={<EndpointsPage />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/question" element={<QuestionPage />} />
       </Routes>
     </Router>
   );
