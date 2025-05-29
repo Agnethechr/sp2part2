@@ -6,7 +6,8 @@ import MainPage from './RouteComponents/MainPage';
 import VisionPage from './RouteComponents/VisionPage';
 import EndpointsPage from './RouteComponents/EndpointsPage';
 import StartPage from './RouteComponents/StartPage';
-import QuestionPage from './RouteComponents/questionPage';
+//import QuestionPage from './RouteComponents/questionPage';
+import QuestionPage from './RouteComponents/QuestionsPage';
 import WinnerPage from './RouteComponents/WinnerPage';
 import LoserPage from './RouteComponents/LoserPage';
 
