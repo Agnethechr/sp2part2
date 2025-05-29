@@ -39,10 +39,14 @@ const QuestionsPage = () => {
     };
   };
 
+  const API_URL = import.meta.env.PROD
+  ? 'https://quiz.vichconsulting.dk'
+  : '/api';
+  
   // 👉 Hent alle spørgsmål én gang
   const fetchAllQuestions = async () => {
     try {
-      const res = await fetch("https://quiz.vichconsulting.dk/api/game");
+      const res = await fetch("`${API_URL}/api/game`");
       if (!res.ok) throw new Error("Kunne ikke hente spørgsmål");
       const data = await res.json();
       setQuestions(data.map(transformQuestion));
