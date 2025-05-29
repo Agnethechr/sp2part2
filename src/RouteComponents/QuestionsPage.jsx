@@ -15,7 +15,7 @@ const safeHavens = {
   14: 1000000
 };
 
-const QuestionPage = () => {
+const QuestionsPage = () => {
    const [questionId, setQuestionId] = useState(0); // Bruger index i stedet for ID
   const [questions, setQuestions] = useState([]);
   const [question, setQuestion] = useState(null);
@@ -124,4 +124,4 @@ const handleAnswer = (key) => {
   );
 };
 
-export default QuestionPage;
+export default QuestionsPage;
