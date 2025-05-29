@@ -61,8 +61,8 @@ const QuestionPage = () => {
 
   useEffect(() => {
     fetchAllQuestions();
-  },);
-  
+  },[]);
+
   const navigate = useNavigate();
 
 const handleAnswer = (key) => {

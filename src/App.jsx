@@ -34,7 +34,6 @@ function AppLayout() {
             <Link to="/vision">Vision</Link> |{' '}
             <Link to="/endpoints">Endpoints</Link> |{' '}
             <Link to="/quiz">Quiz</Link> |{' '}
-            
           </nav>
         </>
       )}
