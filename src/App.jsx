@@ -12,6 +12,7 @@ import MainPage from './RouteComponents/MainPage';
 import VisionPage from './RouteComponents/VisionPage';
 import EndpointsPage from './RouteComponents/EndpointsPage';
 import StartPage from './RouteComponents/StartPage';
+import QuizPage from './RouteComponents/QuizPage';
 
 function Layout() {
   const location = useLocation();
@@ -42,6 +43,7 @@ function Layout() {
         <Route path="/vision" element={<VisionPage />} />
         <Route path="/endpoints" element={<EndpointsPage />} />
         <Route path="/quiz" element={<StartPage />} />
+        <Route path="/quizplay" element={<QuizPage />} />
       </Routes>
     </>
   );
