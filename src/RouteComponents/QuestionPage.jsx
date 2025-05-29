@@ -15,7 +15,6 @@ const safeHavens = {
   14: 1000000
 };
 
-
 const QuestionPage = () => {
    const [questionId, setQuestionId] = useState(0); // Bruger index i stedet for ID
   const [questions, setQuestions] = useState([]);
