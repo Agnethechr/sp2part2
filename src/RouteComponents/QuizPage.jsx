@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 //De forskellige pengesumme brugeren kan vinde.

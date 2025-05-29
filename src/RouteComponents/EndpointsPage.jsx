@@ -4,7 +4,7 @@ function EndpointsPage() {
       <h2>API Endpoints</h2>
 
       <h3>Spørgsmål (Questions)</h3>
-      <table>
+      <table className="endpoints">
         <thead>
           <tr>
             <th>Handling</th>
