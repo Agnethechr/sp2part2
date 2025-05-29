@@ -6,7 +6,7 @@ export default function StartPage() {
 
   //Skal linke videre til questionPage efter man har klikket nyt spil.
   const startNewGame = () => {
-    navigate('/QuestionPage');
+    navigate('/question');
   };
 
   return (

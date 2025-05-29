@@ -1,5 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import styles from './QuestionBox.module.css';
+import { useNavigate } from 'react-router-dom';
+
+const prizeLevels = [
+  1000, 2000, 3000, 4000, 5000,
+  8000, 12000, 20000, 32000, 50000,
+  75000, 125000, 250000, 500000, 1000000
+];
+
+const safeHavens = {
+  4: 1000,
+  9: 32000,
+  14: 1000000
+};
+
 
 const QuestionPage = () => {
    const [questionId, setQuestionId] = useState(0); // Bruger index i stedet for ID
@@ -49,22 +63,33 @@ const QuestionPage = () => {
     fetchAllQuestions();
   }, []);
 
-  const handleAnswer = (key) => {
-    setSelected(key);
-    const correct = question.options[key].correct;
+  const navigate = useNavigate();
 
-    setTimeout(() => {
-      if (correct) {
-        if (questionId < questions.length - 1) {
-          setQuestionId((prev) => prev + 1);
-        } else {
-          alert("Du har gennemført quizzen!");
-        }
+const handleAnswer = (key) => {
+  setSelected(key);
+  const correct = question.options[key].correct;
+
+  setTimeout(() => {
+    if (correct) {
+      if (questionId < questions.length - 1) {
+        setQuestionId((prev) => prev + 1);
       } else {
-        alert("Forkert svar! Prøv igen.");
+        const finalPrize = prizeLevels[questionId];
+        navigate('/winner', { state: { amount: finalPrize } });
       }
-    }, 1000);
-  };
+    } else {
+      let safeAmount = 0;
+      for (let i = questionId - 1; i >= 0; i--) {
+        if (safeHavens[i]) {
+          safeAmount = safeHavens[i];
+          break;
+        }
+      }
+      navigate('/loser', { state: { amount: safeAmount } });
+    }
+  }, 1000);
+};
+
 
   if (!question) return <div>Indlæser spørgsmål...</div>;
 
