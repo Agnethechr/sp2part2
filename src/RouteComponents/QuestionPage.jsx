@@ -9,9 +9,9 @@ const prizeLevels = [
 ];
 
 const safeHavens = {
-  4: 1000,
-  9: 32000,
-  14: 1000000
+  5: 1000,
+  10: 32000,
+  15: 1000000
 };
 
 
@@ -87,7 +87,7 @@ const handleAnswer = (key) => {
       }
       navigate('/loser', { state: { amount: safeAmount } });
     }
-  }, 1000);
+  });
 };
 
 
