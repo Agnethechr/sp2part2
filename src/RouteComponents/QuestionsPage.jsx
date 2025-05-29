@@ -42,7 +42,7 @@ const QuestionsPage = () => {
   // 👉 Hent alle spørgsmål én gang
   const fetchAllQuestions = async () => {
     try {
-      const res = await fetch("/api/game");
+      const res = await fetch("https://quiz.vichconsulting.dk/api/game");
       if (!res.ok) throw new Error("Kunne ikke hente spørgsmål");
       const data = await res.json();
       setQuestions(data.map(transformQuestion));
