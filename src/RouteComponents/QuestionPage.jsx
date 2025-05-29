@@ -10,9 +10,9 @@ const prizeLevels = [
 ];
 
 const safeHavens = {
-  5: 1000,
-  10: 32000,
-  15: 1000000
+  4: 1000,
+  8: 32000,
+  14: 1000000
 };
 
 
@@ -81,12 +81,12 @@ const handleAnswer = (key) => {
     } else {
       let safeAmount = 0;
       for (let i = questionId - 1; i >= 0; i--) {
-        if (safeHavens[i]) {
-          safeAmount = safeHavens[i];
+        if (safeHavens[i + 1]) {
+          safeAmount = prizeLevels[i + 1];
           break;
         }
       }
-      navigate('/loser', { state: { amount: safeAmount } });
+      navigate('/loser', { state: { amount : safeAmount } });
     }
   });
 };
@@ -118,7 +118,7 @@ const handleAnswer = (key) => {
           </button>
         ))}
       </div>
-    <div className={`prize-counter ${safeHavens[questionId + 1] ? 'safe-haven' : ''}`}>
+    <div className={`prize-counter ${safeHavens[questionId] ? 'safe-haven' : ''}`}>
   {prizeLevels[questionId].toLocaleString()} kr.
     </div>
     </div>
