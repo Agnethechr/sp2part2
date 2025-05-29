@@ -111,3 +111,16 @@ table th,
 table td {
   padding: 12px 16px;
 }
+
+.prize-counter{
+   position: absolute;
+  right: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.prize-counter.safe-haven {
+  color: #FFD700;
+}

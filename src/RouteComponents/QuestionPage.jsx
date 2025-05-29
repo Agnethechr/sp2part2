@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './QuestionBox.module.css';
 import { useNavigate } from 'react-router-dom';
+import hvvmLogo from '/hvvmLogo.png';
 
 const prizeLevels = [
   1000, 2000, 3000, 4000, 5000,
@@ -95,7 +96,8 @@ const handleAnswer = (key) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.logo}>Who Wants to Be a Millionaire</h1>
+      <img src={hvvmLogo} className="logo" alt="Hvvm logo" />
+      <h1>Who Wants to Be a Millionaire</h1>
       <div className={styles.questionBox}>{question.text}</div>
 
       <div className={styles.answers}>
@@ -116,6 +118,9 @@ const handleAnswer = (key) => {
           </button>
         ))}
       </div>
+    <div className={`prize-counter ${safeHavens[questionId + 1] ? 'safe-haven' : ''}`}>
+  {prizeLevels[questionId].toLocaleString()} kr.
+    </div>
     </div>
   );
 };
