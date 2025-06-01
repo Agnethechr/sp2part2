@@ -3,6 +3,7 @@ import styles from './QuestionBox.module.css';
 import { useNavigate } from 'react-router-dom';
 import hvvmLogo from '/hvvmLogo.png';
 
+
 const prizeLevels = [
   1000, 2000, 3000, 4000, 5000,
   8000, 12000, 20000, 32000, 50000,
@@ -42,7 +43,18 @@ const QuestionPage = () => {
   // 👉 Hent alle spørgsmål én gang
   const fetchAllQuestions = async () => {
     try {
-      const res = await fetch("/api/game");
+      const token = localStorage.getItem('token');
+const res = await fetch("/api/game", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+  if (res.status === 401) {
+      localStorage.removeItem('token');
+      navigate('/login');
+      return;
+    }
+
       if (!res.ok) throw new Error("Kunne ikke hente spørgsmål");
       const data = await res.json();
       setQuestions(data.map(transformQuestion));
@@ -59,9 +71,15 @@ const QuestionPage = () => {
     }
   }, [questions, questionId]);
 
-  useEffect(() => {
+ useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    navigate('/login');
+  } else {
     fetchAllQuestions();
-  },[]);
+  }
+}, []);
+
 
   const navigate = useNavigate();
 
